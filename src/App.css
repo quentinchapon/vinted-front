@@ -21,6 +21,14 @@ h3 {
   color: #656565;
 }
 
+h4 {
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 1.43rem;
+  color: #000000;
+  margin-bottom: 10px;
+  margin-top: 40px;
+}
+
 .wrapper {
   max-width: 1280px;
   margin-top: 125px;
@@ -79,7 +87,6 @@ button {
   border-radius: 30px;
   background-color: #10828800;
   font-size: 16px;
-  color: #139ba2;
   cursor: pointer;
 }
 .hidden {
@@ -478,13 +485,18 @@ form.searchbar button {
   flex-direction: column;
 }
 
+.offerInfos li {
+  list-style-type: none;
+}
+
 .offerInfos span {
+  display: inline-block;
   font-family: "Nunito Sans", sans-serif;
   font-weight: 300;
   color: #656565;
   font-size: 0.9rem;
   height: 14px;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
 }
 
 /* OFFER PAGE */
@@ -494,7 +506,7 @@ form.searchbar button {
   display: flex;
   column-gap: 40px;
   justify-content: center;
-  margin-top: 125px;
+  margin-top: 165px;
   height: 700px;
   overflow: hidden;
 }
@@ -503,7 +515,7 @@ form.searchbar button {
   width: 520px;
   height: 570px;
   border-radius: 10px;
-  margin-top: 165px;
+  margin-top: 20px;
   overflow: hidden;
 }
 
@@ -544,6 +556,10 @@ form.searchbar button {
   color: #656565;
 }
 
+.BtnBuy {
+  color: white;
+}
+
 /* /* FOOTER */
 footer {
   margin-top: 60px;
@@ -577,4 +593,173 @@ footer {
 
 footer .nav-main {
   margin-left: 30px;
+}
+
+/* SIGN UP PAGE */
+/* BUTTONS SIGN - SELL */
+.buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-left: auto;
+  margin-right: 60px;
+}
+
+.back-link {
+  position: absolute;
+  margin-top: 30px;
+  margin-left: 30px;
+}
+
+.button-primary {
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 1.1em;
+  color: #ffffff;
+  width: 140px;
+  height: 40px;
+  border-radius: 30px;
+  background-color: #7a68f2;
+  cursor: pointer;
+  border: none;
+}
+
+.buttons .button-primary {
+  margin-left: 15px;
+}
+
+/* .button-secondary {
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 1.1em;
+  color: #7a68f2;
+  width: 140px;
+  height: 40px;
+  border-radius: 30px;
+  border: 2px solid #7a68f2;
+  background-color: #ffffff;
+  cursor: pointer;
+} */
+.link a {
+  color: #7a68f2;
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 1rem;
+  border: none;
+  outline: none;
+  padding: 0;
+  background-color: #ffffff;
+  cursor: pointer;
+  margin: 0 15px;
+}
+
+.vert-separator {
+  height: 22px;
+  width: 1px;
+  background-color: #e6e6e6;
+  margin-top: 10px;
+}
+
+.back-link {
+  position: absolute;
+  margin-top: 30px;
+  margin-left: 30px;
+}
+
+/* SIGN UP PAGE */
+.panels {
+  display: flex;
+  height: 70vh;
+  margin-top: 150px;
+}
+
+.left-panel,
+.right-panel {
+  box-shadow: 5px 5px 29px #2200ff27;
+  width: 50%;
+}
+
+.left-panel {
+  border-radius: 10px 0 0 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.lorem {
+  font-family: "Nunito", sans-serif;
+  font-size: 0.875rem;
+  color: #656565;
+  width: 350px;
+  line-height: 19px;
+  margin-bottom: 40px;
+}
+
+.right-panel {
+  background-color: #7a68f2;
+  border-radius: 0 10px 10px 0;
+  overflow: hidden;
+  background-image: url(../src/img/card-grid-2.png);
+  background-position: center;
+  background-size: inherit;
+}
+
+.right-panel::before {
+  content: "";
+  display: block;
+  height: 100%;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #7a68f2a5;
+  overflow: hidden;
+}
+
+/* SIGN UP FORM */
+.form-sign-up {
+  display: flex;
+  flex-direction: column;
+  width: 350px;
+  min-width: 350px;
+}
+
+.form-sign-up input {
+  width: 350px;
+  margin-bottom: 20px;
+}
+
+.form-label {
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 0.75rem;
+  color: #656565;
+  margin-bottom: 10px;
+}
+
+.left-panel .hor-separator {
+  height: 1px;
+  width: 100%;
+  background-color: #e6e6e6;
+  margin-top: 10px;
+}
+
+.form-sign-up-button {
+  background-color: #7a68f2;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  color: #ffffff;
+  font-family: "Nunito Sans", sans-serif;
+  font-weight: 600;
+  font-size: 1.43rem;
+}
+
+.already-signed {
+  margin-top: 15px;
+  text-align: center;
 }

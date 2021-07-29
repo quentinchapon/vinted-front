@@ -1,8 +1,9 @@
 import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Home from "./containers/Home.js";
+import SignUp from "./containers/SignUp";
 import Header from "./components/Header";
 import Offer from "./containers/Offer.js";
-import Home from "./containers/Home.js";
 import Footer from "./components/Footer";
 
 function App() {
@@ -14,6 +15,10 @@ function App() {
         <Switch>
           <Route path="/offer/:id">
             <Offer />
+          </Route>
+
+          <Route path="/signUp">
+            <SignUp />
           </Route>
 
           <Route path="/">

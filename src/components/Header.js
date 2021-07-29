@@ -40,7 +40,9 @@ const Header = () => {
           <button className="link">Sign Up</button>
           <div className="vert-separator"></div>
 
-          <button className="link">Sign In</button>
+          <Link to="/SignUp">
+            <button className="link">Sign In</button>
+          </Link>
 
           <button className="button-primary">Sell now</button>
         </div>

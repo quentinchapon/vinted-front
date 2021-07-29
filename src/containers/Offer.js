@@ -24,7 +24,6 @@ const Offer = () => {
     };
     fetchData();
   }, [id]);
-  console.log(data);
 
   return isLoading ? (
     <Loader />
@@ -55,12 +54,15 @@ const Offer = () => {
                 const key = Object.keys(detail);
                 return (
                   <li>
-                    <span>{key[0]}</span>
-                    <span>{detail[key[0]]}</span>
+                    <span>{key[0]}:</span>
+                    <span> {detail[key[0]]}</span>
                   </li>
                 );
               })}
             </ul>
+          </div>
+          <div className="btnBuy button-primary">
+            <button>Buy product</button>
           </div>
         </div>
       </div>
