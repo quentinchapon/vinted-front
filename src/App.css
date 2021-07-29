@@ -1,38 +1,580 @@
-.App {
-  text-align: center;
+/* HEADER */
+h1 {
+  font-family: "Reem Kufi", sans-serif;
+  font-size: 4.3rem;
+  color: #7a68f2;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+h1 span {
+  color: #faf45f;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+h2 {
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 2.4rem;
+  color: #7a68f2;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+h3 {
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 1.875rem;
+  color: #656565;
+}
+
+.wrapper {
+  max-width: 1280px;
+  margin-top: 125px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.wrapperLoader {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  height: 100vh;
+}
+
+/* LOADER */
+
+.wrapperLoader {
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
 }
 
-.App-link {
-  color: #61dafb;
+svg {
+  width: 70px;
+  overflow: visible;
+  cursor: pointer;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+svg .loader-ring {
+  transform-origin: 50px 50px;
+  animation: starting-fill 0.5s forwards,
+    vary-loader-width 3s 0.5s linear infinite alternate,
+    spin 1.6s 0.2s linear infinite;
+}
+svg .loader-ring-overlay {
+  visibility: hidden;
+  transform-origin: 50px 50px;
+  animation: spin 1.6s 0.2s linear infinite;
+}
+.complete .loader-ring-overlay {
+  visibility: visible;
+  animation: complete-fill 0.5s linear forwards, spin 1.6s 0.2s linear infinite;
+}
+.complete .loader-ring {
+  animation: starting-fill 0.5s forwards,
+    vary-loader-width 3s 0.5s linear infinite alternate,
+    spin 1.6s 0.2s linear infinite, fade 0.1 0.5s linear forwards;
+}
+.complete svg {
+  animation: fade 0.2s 0.7s linear forwards;
+  transition: all 0s 0.9s;
+  cursor: initial;
+  pointer-events: none;
+}
+button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 30px;
+  background-color: #10828800;
+  font-size: 16px;
+  color: #139ba2;
+  cursor: pointer;
+}
+.hidden {
+  display: none !important;
+}
+@keyframes starting-fill {
+  to {
+    stroke-dashoffset: 270;
   }
+}
+@keyframes vary-loader-width {
+  0% {
+    stroke-dashoffset: 270;
+  }
+  50% {
+    stroke-dashoffset: 170;
+  }
+  100% {
+    stroke-dashoffset: 275;
+  }
+}
+@keyframes complete-fill {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes fade {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+@keyframes spin {
   to {
     transform: rotate(360deg);
   }
+}
+
+header {
+  margin-right: auto;
+  margin-left: auto;
+  top: 0;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: white;
+  width: 100%;
+  max-width: 1280px;
+  height: 125px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+}
+
+.header-right {
+  margin-right: 20px;
+}
+
+/* LOGO */
+.logo-main {
+  margin-left: 20px;
+}
+
+.logo-almost {
+  font-family: "Reem Kufi", sans-serif;
+  font-size: 0.5rem;
+  color: #b9b9b9;
+  margin-bottom: 5px;
+  text-decoration: none;
+}
+
+.logo-vinted {
+  font-family: "Reem Kufi", sans-serif;
+  font-size: 2.4em;
+  font-weight: 700;
+  color: #7a68f2;
+  text-decoration: none;
+  text-decoration: none;
+}
+
+.logo-vinted span {
+  color: #faf45f;
+}
+
+/* SEARCH BAR */
+.searchbar img {
+  width: 16px;
+  margin-left: -8px;
+  margin-top: 2px;
+}
+.text-field-main {
+  margin-left: 50px;
+}
+
+.text-field-main input {
+  max-width: 15vw;
+  min-width: 200px;
+  height: 54px;
+  border-radius: 30px;
+  border: 1px solid #b9b9b9;
+  box-sizing: border-box;
+  background: border-box;
+  padding-left: 25px;
+}
+
+.text-field-main input:focus {
+  border: 2px solid #7a68f2;
+  outline: none;
+}
+
+.text-field-main input::-webkit-input-placeholder {
+  color: #b9b9b9;
+  font-family: "Nunito Sans", sans-serif;
+  font-weight: 300;
+  margin-left: 25px;
+}
+
+.text-field-main input:-ms-input-placeholder {
+  color: #b9b9b9;
+  font-family: "Nunito Sans", sans-serif;
+  font-weight: 300;
+  margin-left: 25px;
+}
+
+.text-field-main input::-ms-input-placeholder {
+  color: #b9b9b9;
+  font-family: "Nunito Sans", sans-serif;
+  font-weight: 300;
+  margin-left: 25px;
+}
+
+.text-field-main input::placeholder {
+  color: #b9b9b9;
+  font-family: "Nunito Sans", sans-serif;
+  font-weight: 300;
+  margin-left: 25px;
+}
+
+form.searchbar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+form.searchbar button {
+  width: 39px;
+  height: 39px;
+  background-color: #7a68f2;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  right: 48px;
+}
+
+/* NAVIGATION */
+.nav-main {
+  margin-left: -25px;
+}
+
+.nav-main ul {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+}
+
+.nav-main li {
+  font-family: "Nunito Sans", sans-serif;
+  font-weight: 600;
+  font-size: 0.875em;
+  color: #656565;
+  margin-right: 15px;
+  margin-left: 15px;
+  cursor: pointer;
+}
+
+.nav-main li:hover {
+  color: #7a68f2;
+  border-bottom: 2px solid #7a68f2;
+}
+
+.nav-main li:active {
+  color: #7a68f2;
+}
+
+/* BUTTONS SIGN - SELL */
+.buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-left: auto;
+}
+
+.button-primary {
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 1.1em;
+  color: #ffffff;
+  width: 140px;
+  height: 40px;
+  border-radius: 30px;
+  background-color: #7a68f2;
+  cursor: pointer;
+  border: none;
+}
+
+.buttons .button-primary {
+  margin-left: 15px;
+}
+
+.link {
+  color: #7a68f2;
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 1rem;
+  border: none;
+  outline: none;
+  padding: 0;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+.vert-separator {
+  height: 22px;
+  width: 1px;
+  background-color: #7a68f2;
+  margin: 0 20px;
+}
+
+/* HERO BANNER */
+.hero-banner {
+  box-sizing: border-box;
+  padding-top: 90px;
+  margin-top: 125px;
+  height: 375px;
+  background-image: url(/src/img/hero-women.png);
+}
+
+.hero-banner h1 {
+  margin-left: 100px;
+}
+
+/* SECTION TITLE */
+.section-title {
+  display: flex;
+  margin-left: 60px;
+  align-items: center;
+  margin-top: 70px;
+}
+
+.section-title .vert-separator {
+  background-color: #7a68f2;
+}
+
+.link {
+  color: #7a68f2;
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 1rem;
+  border: none;
+  outline: none;
+  padding: 0;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+/* CARDS */
+
+.offer-card-main {
+  box-shadow: 1px 1px 10px #00223441;
+  transition-property: box-shadow;
+  transition-duration: 0.3s;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.offer-card-main:hover {
+  box-shadow: 5px 5px 40px #00223441;
+}
+.offer-card-content {
+  background-color: #ffffff;
+  cursor: pointer;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.offer-card-image {
+  height: 152px;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+}
+
+.offer-card-image img {
+  flex-shrink: 0;
+  min-width: 100%;
+  min-height: 100%;
+  width: 100%;
+}
+
+.offer-card-price,
+.offer-card-description,
+.offer-card-brand,
+.offer-card-size,
+.offer-card-user {
+  font-family: "Nunito Sans", sans-serif;
+  font-weight: 300;
+  color: #656565;
+}
+
+.offer-card-price {
+  font-size: 1.5rem;
+  font-weight: 700;
+  height: 24px;
+  margin-bottom: 15px;
+}
+
+.offer-card-description {
+  font-size: 0.9rem;
+  line-height: 20px;
+  height: 60px;
+  margin-bottom: 15px;
+}
+
+.card-info {
+  display: flex;
+  justify-content: space-between;
+}
+
+.offer-card-brand {
+  font-size: 0.9rem;
+  height: 14px;
+  margin-bottom: 5px;
+}
+
+.offer-card-size {
+  font-size: 0.9rem;
+  height: 14px;
+  margin-bottom: 10px;
+}
+
+.hor-separator {
+  height: 1px;
+  width: 100%;
+  background-color: #e6e6e6;
+  margin-bottom: 15px;
+}
+
+.offer-card-user {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 30px;
+}
+
+.offer-card-user img {
+  width: 26px;
+  height: 26px;
+  border-radius: 30px;
+  object-fit: cover;
+}
+
+.offer-card-user p {
+  margin-left: 10px;
+}
+
+.offers-list {
+  justify-content: center;
+  display: -ms-grid;
+  display: grid;
+  grid-template-columns: repeat(3, 27%);
+  grid-column-gap: 30px;
+  grid-row-gap: 30px;
+  margin-top: -70px;
+}
+
+.offerInfos {
+  display: flex;
+  flex-direction: column;
+}
+
+.offerInfos span {
+  font-family: "Nunito Sans", sans-serif;
+  font-weight: 300;
+  color: #656565;
+  font-size: 0.9rem;
+  height: 14px;
+  margin-bottom: 5px;
+}
+
+/* OFFER PAGE */
+
+.contentOffer {
+  width: 100%;
+  display: flex;
+  column-gap: 40px;
+  justify-content: center;
+  margin-top: 125px;
+  height: 700px;
+  overflow: hidden;
+}
+
+.offerImage {
+  width: 520px;
+  height: 570px;
+  border-radius: 10px;
+  margin-top: 165px;
+  overflow: hidden;
+}
+
+.offerImage img {
+  width: 100%;
+  object-fit: cover;
+}
+
+.offerInformations {
+  padding: 30px;
+  box-sizing: border-box;
+  width: 445px;
+  height: 570px;
+  background-color: #fff;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 5px 5px 29px #00223441;
+  margin-top: 20px;
+}
+
+.offerHeader {
+  display: flex;
+  justify-content: space-between;
+}
+
+.offerPrice {
+  margin: 10px 0;
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #656565;
+}
+
+.offerDescription {
+  margin: 10px 0;
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 1rem;
+  color: #656565;
+}
+
+/* /* FOOTER */
+footer {
+  margin-top: 60px;
+  border-top: 1px solid #e6e6e6;
+  margin-right: 60px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: white;
+  width: 100vw;
+  max-width: 1920px;
+  height: 100px;
+}
+
+.logo-footer {
+  margin-left: 40px;
+}
+
+.logo-footer .logo-main {
+  margin-left: 60px;
+}
+
+.logo-footer .logo-almost {
+  font-size: 0.3125rem;
+  margin-bottom: 0px;
+}
+
+.logo-footer .logo-vinted {
+  font-size: 1.75rem;
+}
+
+footer .nav-main {
+  margin-left: 30px;
 }
