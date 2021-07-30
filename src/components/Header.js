@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 import Search from "../img/ic_search.svg";
+import { useState } from "react";
 
-const Header = ({ userToken, setUser }) => {
+const Header = ({ userToken, setUser, setDisplayModal, displayModal }) => {
   return (
     <header>
       <div className="header-left">
@@ -50,7 +51,18 @@ const Header = ({ userToken, setUser }) => {
           ) : (
             <div className="connectionButtons">
               <Link to="/SignUp">
-                <button className="link">Sign Up</button>
+                <button
+                  className="link"
+                  onClick={() => {
+                    if (displayModal === false) {
+                      setDisplayModal(true);
+                    } else {
+                      setDisplayModal(false);
+                    }
+                  }}
+                >
+                  Sign Up
+                </button>
               </Link>
               <div className="vert-separator"></div>
               <Link to="/SignIn">

@@ -771,3 +771,15 @@ footer .nav-main {
   margin-top: 15px;
   text-align: center;
 }
+
+.modal1 {
+  width: 400px;
+  height: 400px;
+  background-color: #7a68f2;
+}
+
+.modal2 {
+  width: 400px;
+  height: 400px;
+  background-color: #faf45f;
+}

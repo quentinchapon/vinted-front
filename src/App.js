@@ -8,17 +8,17 @@ import SignIn from "./containers/SignIn";
 import Header from "./components/Header";
 import Offer from "./containers/Offer.js";
 import Footer from "./components/Footer";
+import Modal from "./components/Modal";
 
 function App() {
   const [userToken, setUserToken] = useState(Cookies.get("userToken") || null);
+  const [displayModal, setDisplayModal] = useState(false);
 
   // Fonction de création du cookie
   const setUser = (token) => {
     if (token) {
       Cookies.set("userToken", token, {
         expires: 7,
-        sameSite: "none",
-        secure: true,
       });
 
       setUserToken(token);
@@ -31,7 +31,14 @@ function App() {
   return (
     <div className="wrapper">
       <Router>
-        <Header userToken={userToken} setUser={setUser}></Header>
+        <Modal displayModal={displayModal} />
+
+        <Header
+          userToken={userToken}
+          setUser={setUser}
+          setDisplayModal={setDisplayModal}
+          displayModal={displayModal}
+        ></Header>
 
         <Switch>
           <Route path="/offer/:id">
