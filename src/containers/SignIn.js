@@ -3,8 +3,7 @@ import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
 
-const SignUp = ({ setUser }) => {
-  const [username, setUsername] = useState();
+const SignUp = ({ setUser, userToken }) => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const history = useHistory();
@@ -19,26 +18,23 @@ const SignUp = ({ setUser }) => {
     setPassword(value);
   };
 
-  const handleUsernameChange = (event) => {
-    const value = event.target.value;
-    setUsername(value);
-  };
-
   const handleSubmit = async (event) => {
-    event.preventDefault();
-    const newUser = {
-      username: username,
-      email: email,
-      password: password,
-    };
     try {
+      event.preventDefault();
+      const user = {
+        email: email,
+        password: password,
+      };
+
       const response = await axios.post(
-        `https://lereacteur-vinted-api.herokuapp.com/user/signup`,
-        newUser
+        "https://lereacteur-vinted-api.herokuapp.com/user/login",
+        user
       );
-      // Si réponse avec token on envoi token dans la fonction setUser (dans App.js) qui va créer le cookie
+      console.log(response.data);
       if (response.data.token) {
+        // Création du cookie avec le token
         setUser(response.data.token);
+        // Rediriger l'utilisateur vers la page ou il se trouvait précédement
         history.push("/");
       }
     } catch (error) {
@@ -48,7 +44,7 @@ const SignUp = ({ setUser }) => {
 
   return (
     <div className="panels">
-      <div className="link bacl-link">
+      <div className="link back-link">
         <span>&#60; Back</span>
       </div>
       <div className="left-panel">
@@ -63,7 +59,7 @@ const SignUp = ({ setUser }) => {
               </p>
             </div>
           </div>
-          <h4>Sign up</h4>
+          <h4>Sign in</h4>
           <p className="lorem">
             Nam convallis dictum lectus a malesuada. Vestibulum sagittis dui
             eget felis tempor aliquet.
@@ -74,18 +70,6 @@ const SignUp = ({ setUser }) => {
             className="form-sign-up text-field-main"
             onSubmit={handleSubmit}
           >
-            <div className="form-sign-up">
-              <label className="form-label" htmlFor="name">
-                Username *
-              </label>
-              <input
-                type="text"
-                name="username"
-                className="username"
-                required
-                onChange={handleUsernameChange}
-              />
-            </div>
             <div className="form-sign-up">
               <label className="form-label" htmlFor="email">
                 E-mail adresse *
@@ -114,13 +98,13 @@ const SignUp = ({ setUser }) => {
             <input
               className="form-sign-up-button"
               type="submit"
-              value="Sign up"
+              value="Sign in"
             />
           </form>
           <div className="hor-separator"></div>
           <div className="already-signed link">
-            <Link to="/SignIn">
-              <span>Already a member ? Sign in !</span>
+            <Link to="/SignUp">
+              <span>Not a member yet ? Sign up</span>
             </Link>
           </div>
         </div>
