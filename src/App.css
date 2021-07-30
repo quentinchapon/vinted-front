@@ -1,4 +1,3 @@
-/* HEADER */
 h1 {
   font-family: "Reem Kufi", sans-serif;
   font-size: 4.3rem;
@@ -127,7 +126,10 @@ button {
   }
 }
 
+/* HEADER */
+
 header {
+  z-index: 9999;
   margin-right: auto;
   margin-left: auto;
   top: 0;
@@ -183,14 +185,10 @@ header {
   margin-left: -8px;
   margin-top: 2px;
 }
-.text-field-main {
-  margin-left: 50px;
-}
 
 .text-field-main input {
-  max-width: 15vw;
-  min-width: 200px;
-  height: 54px;
+  width: 250px;
+  height: 44px;
   border-radius: 30px;
   border: 1px solid #b9b9b9;
   box-sizing: border-box;
@@ -329,6 +327,12 @@ form.searchbar button {
   margin: 0 20px;
 }
 
+.connectionButtons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
 /* HERO BANNER */
 .hero-banner {
   box-sizing: border-box;
@@ -367,7 +371,18 @@ form.searchbar button {
 
 /* CARDS */
 
+.offers-list {
+  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(3, 27%);
+  grid-column-gap: 30px;
+  grid-row-gap: 30px;
+  margin-top: -70px;
+}
+
 .offer-card-main {
+  height: 258px;
+  display: flex;
   box-shadow: 1px 1px 10px #00223441;
   transition-property: box-shadow;
   transition-duration: 0.3s;
@@ -378,30 +393,30 @@ form.searchbar button {
 .offer-card-main:hover {
   box-shadow: 5px 5px 40px #00223441;
 }
+
+.offer-card-image {
+  overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40%;
+}
+
 .offer-card-content {
   background-color: #ffffff;
   cursor: pointer;
   padding: 20px;
   box-sizing: border-box;
-}
-
-.offer-card-image {
-  height: 152px;
-  overflow: hidden;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-
-  justify-content: center;
-
-  align-items: center;
+  width: 60%;
 }
 
 .offer-card-image img {
   flex-shrink: 0;
   min-width: 100%;
   min-height: 100%;
-  width: 100%;
+  transform: scale(0.6);
 }
 
 .offer-card-price,
@@ -468,16 +483,6 @@ form.searchbar button {
 
 .offer-card-user p {
   margin-left: 10px;
-}
-
-.offers-list {
-  justify-content: center;
-  display: -ms-grid;
-  display: grid;
-  grid-template-columns: repeat(3, 27%);
-  grid-column-gap: 30px;
-  grid-row-gap: 30px;
-  margin-top: -70px;
 }
 
 .offerInfos {
@@ -598,18 +603,11 @@ footer .nav-main {
 /* SIGN UP PAGE */
 /* BUTTONS SIGN - SELL */
 .buttons {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: row;
   flex-direction: row;
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  margin-left: auto;
-  margin-right: 60px;
 }
 
 .back-link {
@@ -694,9 +692,8 @@ footer .nav-main {
   font-family: "Nunito", sans-serif;
   font-size: 0.875rem;
   color: #656565;
-  width: 350px;
+  width: 100%;
   line-height: 19px;
-  margin-bottom: 40px;
 }
 
 .right-panel {
@@ -720,16 +717,28 @@ footer .nav-main {
 }
 
 /* SIGN UP FORM */
+
+.sign-up-module {
+  width: 50%;
+}
 .form-sign-up {
   display: flex;
   flex-direction: column;
-  width: 350px;
-  min-width: 350px;
+  width: 100%;
 }
 
-.form-sign-up input {
-  width: 350px;
+.form-sign {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.form-sign input {
+  width: 100%;
   margin-bottom: 20px;
+}
+
+.form-sign button {
+  width: 100%;
 }
 
 .form-label {

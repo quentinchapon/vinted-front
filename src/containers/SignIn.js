@@ -35,7 +35,7 @@ const SignUp = ({ setUser, userToken }) => {
         // Création du cookie avec le token
         setUser(response.data.token);
         // Rediriger l'utilisateur vers la page ou il se trouvait précédement
-        history.push("/");
+        history.go(-1);
       }
     } catch (error) {
       console.log(error.message);
@@ -67,7 +67,7 @@ const SignUp = ({ setUser, userToken }) => {
           <form
             action=""
             method="get"
-            className="form-sign-up text-field-main"
+            className="form-sign text-field-main "
             onSubmit={handleSubmit}
           >
             <div className="form-sign-up">
@@ -95,11 +95,9 @@ const SignUp = ({ setUser, userToken }) => {
               />
             </div>
 
-            <input
-              className="form-sign-up-button"
-              type="submit"
-              value="Sign in"
-            />
+            <button className="button-primary" type="submit" value="Sign in">
+              Sign in
+            </button>
           </form>
           <div className="hor-separator"></div>
           <div className="already-signed link">

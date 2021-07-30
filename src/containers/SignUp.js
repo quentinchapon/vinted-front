@@ -39,7 +39,7 @@ const SignUp = ({ setUser }) => {
       // Si réponse avec token on envoi token dans la fonction setUser (dans App.js) qui va créer le cookie
       if (response.data.token) {
         setUser(response.data.token);
-        history.push("/");
+        history.go(-1);
       }
     } catch (error) {
       console.log(error.message);
@@ -48,7 +48,7 @@ const SignUp = ({ setUser }) => {
 
   return (
     <div className="panels">
-      <div className="link bacl-link">
+      <div className="link back-link">
         <span>&#60; Back</span>
       </div>
       <div className="left-panel">
@@ -71,7 +71,7 @@ const SignUp = ({ setUser }) => {
           <form
             action=""
             method="get"
-            className="form-sign-up text-field-main"
+            className="form-sign text-field-main"
             onSubmit={handleSubmit}
           >
             <div className="form-sign-up">
@@ -111,11 +111,9 @@ const SignUp = ({ setUser }) => {
               />
             </div>
 
-            <input
-              className="form-sign-up-button"
-              type="submit"
-              value="Sign up"
-            />
+            <button className="button-primary" type="submit" value="Sign in">
+              Sign up
+            </button>
           </form>
           <div className="hor-separator"></div>
           <div className="already-signed link">
