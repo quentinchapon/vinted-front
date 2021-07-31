@@ -524,7 +524,7 @@ form.searchbar button {
 }
 
 .offerImage img {
-  width: 100%;
+  height: 100%;
   object-fit: cover;
 }
 
@@ -668,6 +668,8 @@ footer .nav-main {
 
 /* MODAL SIGN UP PAGE */
 .modalWrapper {
+  animation-name: fade;
+  animation-duration: 0.3s;
   z-index: 1;
   top: 0;
   left: 0;
@@ -830,4 +832,28 @@ footer .nav-main {
 .already-signed {
   margin-top: 15px;
   text-align: center;
+}
+
+/* ANIMATIONS */
+
+@keyframes fade {
+  from {
+    margin-top: 200px;
+    opacity: 0;
+  }
+  to {
+    margin-top: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes fade {
+  from {
+    margin-top: 100px;
+    opacity: 0;
+  }
+  to {
+    margin-top: 0;
+    opacity: 1;
+  }
 }

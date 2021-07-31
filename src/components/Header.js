@@ -34,11 +34,13 @@ const Header = ({
         </div>
         <nav className="nav-main">
           <ul>
-            <li>Women</li>
-            <li>Men</li>
+            <Link to="/" style={{ textDecoration: "none" }}>
+              <li>All offers</li>
+            </Link>
+            {/* <li>Men</li>
             <li>Kids</li>
             <li>Home</li>
-            <li>About</li>
+            <li>About</li> */}
           </ul>
         </nav>
       </div>
@@ -73,7 +75,7 @@ const Header = ({
               <button
                 className="link"
                 onClick={() => {
-                  console.log(displayModalSignIn);
+                  console.log("Sign in " + displayModalSignIn);
                   if (displayModalSignIn === false) {
                     setDisplayModalSignIn(true);
                     setDisplayModalSignUp(false);

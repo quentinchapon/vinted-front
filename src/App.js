@@ -12,8 +12,8 @@ import ModalSignIn from "./components/ModalSignIn";
 
 function App() {
   const [userToken, setUserToken] = useState(Cookies.get("userToken") || null);
-  const [displayModalSignUp, setDisplayModalSignUp] = useState("");
-  const [displayModalSignIn, setDisplayModalSignIn] = useState("");
+  const [displayModalSignUp, setDisplayModalSignUp] = useState(false);
+  const [displayModalSignIn, setDisplayModalSignIn] = useState(false);
 
   // Fonction de création du cookie
   const setUser = (token) => {
@@ -31,7 +31,7 @@ function App() {
 
   return (
     <Router>
-      <ModalSignUp
+      <ModalSignIn
         displayModalSignUp={displayModalSignUp}
         displayModalSignIn={displayModalSignIn}
         setUser={setUser}

@@ -56,15 +56,18 @@ const ModalSignUp = ({
     return (
       <div className="modalWrapper">
         <div className="modal">
-          <div className="closeModal">
+          <div
+            className="closeModal"
+            onClick={() => {
+              setDisplayModalSignUp(false);
+            }}
+          >
             <div className="close-lines">
               <div className="close-line"></div>
               <div className="close-line"></div>
             </div>
           </div>
-          <div className="link back-link">
-            <span>&#60; Back</span>
-          </div>
+          <div className="link back-link"></div>
           <div className="left-panel">
             <div className="sign-up-module">
               <div className="logo-main">
