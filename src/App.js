@@ -3,16 +3,17 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { useState } from "react";
 import Cookies from "js-cookie";
 import Home from "./containers/Home.js";
-import SignUp from "./containers/SignUp";
 import SignIn from "./containers/SignIn";
 import Header from "./components/Header";
 import Offer from "./containers/Offer.js";
 import Footer from "./components/Footer";
-import Modal from "./components/Modal";
+import ModalSignUp from "./components/ModalSignUp";
+import ModalSignIn from "./components/ModalSignIn";
 
 function App() {
   const [userToken, setUserToken] = useState(Cookies.get("userToken") || null);
-  const [displayModal, setDisplayModal] = useState(false);
+  const [displayModalSignUp, setDisplayModalSignUp] = useState("");
+  const [displayModalSignIn, setDisplayModalSignIn] = useState("");
 
   // Fonction de création du cookie
   const setUser = (token) => {
@@ -29,24 +30,34 @@ function App() {
   };
 
   return (
-    <div className="wrapper">
-      <Router>
-        <Modal displayModal={displayModal} />
-
+    <Router>
+      <ModalSignUp
+        displayModalSignUp={displayModalSignUp}
+        displayModalSignIn={displayModalSignIn}
+        setUser={setUser}
+        setDisplayModalSignUp={setDisplayModalSignUp}
+        setDisplayModalSignIn={setDisplayModalSignIn}
+      />
+      <ModalSignUp
+        displayModalSignUp={displayModalSignUp}
+        displayModalSignIn={displayModalSignIn}
+        setUser={setUser}
+        setDisplayModalSignUp={setDisplayModalSignUp}
+        setDisplayModalSignIn={setDisplayModalSignIn}
+      />
+      <div className="wrapper">
         <Header
           userToken={userToken}
           setUser={setUser}
-          setDisplayModal={setDisplayModal}
-          displayModal={displayModal}
+          setDisplayModalSignUp={setDisplayModalSignUp}
+          setDisplayModalSignIn={setDisplayModalSignIn}
+          displayModalSignUp={displayModalSignUp}
+          displayModalSignIn={displayModalSignIn}
         ></Header>
 
         <Switch>
           <Route path="/offer/:id">
             <Offer />
-          </Route>
-
-          <Route path="/signUp">
-            <SignUp setUser={setUser} />
           </Route>
 
           <Route path="/signIn">
@@ -57,9 +68,9 @@ function App() {
             <Home />
           </Route>
         </Switch>
-        <Footer></Footer>
-      </Router>
-    </div>
+      </div>
+      <Footer />
+    </Router>
   );
 }
 

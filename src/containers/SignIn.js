@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
 
-const SignUp = ({ setUser, userToken }) => {
+const SignIn = ({ setUser, userToken }) => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const history = useHistory();
@@ -27,7 +27,7 @@ const SignUp = ({ setUser, userToken }) => {
       };
 
       const response = await axios.post(
-        "https://lereacteur-vinted-api.herokuapp.com/user/login",
+        "https://quentin-vinted-backend.herokuapp.com/login",
         user
       );
       console.log(response.data);
@@ -112,4 +112,4 @@ const SignUp = ({ setUser, userToken }) => {
   );
 };
 
-export default SignUp;
+export default SignIn;

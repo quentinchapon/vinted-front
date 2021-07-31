@@ -1,8 +1,14 @@
 import { Link } from "react-router-dom";
 import Search from "../img/ic_search.svg";
-import { useState } from "react";
 
-const Header = ({ userToken, setUser, setDisplayModal, displayModal }) => {
+const Header = ({
+  userToken,
+  setUser,
+  setDisplayModalSignUp,
+  setDisplayModalSignIn,
+  displayModalSignUp,
+  displayModalSignIn,
+}) => {
   return (
     <header>
       <div className="header-left">
@@ -50,24 +56,34 @@ const Header = ({ userToken, setUser, setDisplayModal, displayModal }) => {
             </div>
           ) : (
             <div className="connectionButtons">
-              <Link to="/SignUp">
-                <button
-                  className="link"
-                  onClick={() => {
-                    if (displayModal === false) {
-                      setDisplayModal(true);
-                    } else {
-                      setDisplayModal(false);
-                    }
-                  }}
-                >
-                  Sign Up
-                </button>
-              </Link>
+              <button
+                className="link"
+                onClick={() => {
+                  if (displayModalSignUp === false) {
+                    setDisplayModalSignUp(true);
+                    setDisplayModalSignIn(false);
+                  } else {
+                    setDisplayModalSignUp(false);
+                  }
+                }}
+              >
+                Sign Up
+              </button>
               <div className="vert-separator"></div>
-              <Link to="/SignIn">
-                <button className="link">Sign In</button>
-              </Link>
+              <button
+                className="link"
+                onClick={() => {
+                  console.log(displayModalSignIn);
+                  if (displayModalSignIn === false) {
+                    setDisplayModalSignIn(true);
+                    setDisplayModalSignUp(false);
+                  } else {
+                    setDisplayModalSignIn(false);
+                  }
+                }}
+              >
+                Sign In
+              </button>
               <button className="button-primary">Sell now</button>
             </div>
           )}

@@ -129,7 +129,6 @@ button {
 /* HEADER */
 
 header {
-  z-index: 9999;
   margin-right: auto;
   margin-left: auto;
   top: 0;
@@ -416,7 +415,7 @@ form.searchbar button {
   flex-shrink: 0;
   min-width: 100%;
   min-height: 100%;
-  transform: scale(0.6);
+  /* transform: scale(0.6); */
 }
 
 .offer-card-price,
@@ -667,11 +666,72 @@ footer .nav-main {
   margin-left: 30px;
 }
 
-/* SIGN UP PAGE */
-.panels {
+/* MODAL SIGN UP PAGE */
+.modalWrapper {
+  z-index: 1;
+  top: 0;
+  left: 0;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(255, 255, 255, 0.932);
+  overflow-y: hidden;
+  padding-right: 15px; /* Avoid width reflow */
+}
+
+.modal {
+  position: relative;
+  border-radius: 10px;
+  width: 80%;
   display: flex;
   height: 70vh;
-  margin-top: 150px;
+  background-color: white;
+}
+
+.closeModal {
+  position: absolute;
+  top: -25px;
+  right: -25px;
+  width: 50px;
+  height: 50px;
+  background-color: aqua;
+  border-radius: 99px;
+  background-color: #7a68f2;
+  cursor: pointer;
+}
+
+.close-lines {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: rotate(0);
+  transition: transform 0.4s;
+  width: 100%;
+  height: 100%;
+}
+
+.close-lines:hover {
+  transform: rotate(-180deg);
+}
+
+.close-lines :nth-child(1) {
+  position: absolute;
+  width: 20px;
+  background-color: white;
+  height: 1px;
+  transform: rotate(45deg);
+}
+
+.closeModal :nth-child(2) {
+  position: absolute;
+
+  width: 20px;
+  background-color: white;
+  height: 1px;
+  transform: rotate(-45deg);
 }
 
 .left-panel,
@@ -770,16 +830,4 @@ footer .nav-main {
 .already-signed {
   margin-top: 15px;
   text-align: center;
-}
-
-.modal1 {
-  width: 400px;
-  height: 400px;
-  background-color: #7a68f2;
-}
-
-.modal2 {
-  width: 400px;
-  height: 400px;
-  background-color: #faf45f;
 }

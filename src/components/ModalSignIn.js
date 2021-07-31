@@ -3,8 +3,7 @@ import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
 
-const SignUp = ({ setUser }) => {
-  const [username, setUsername] = useState();
+const ModalSignIn = ({ displayModal, setUser, setDisplayModal }) => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const history = useHistory();
@@ -19,27 +18,26 @@ const SignUp = ({ setUser }) => {
     setPassword(value);
   };
 
-  const handleUsernameChange = (event) => {
-    const value = event.target.value;
-    setUsername(value);
-  };
-
   const handleSubmit = async (event) => {
-    event.preventDefault();
-    const newUser = {
-      username: username,
-      email: email,
-      password: password,
-    };
     try {
+      event.preventDefault();
+      const user = {
+        email: email,
+        password: password,
+      };
+
       const response = await axios.post(
-        `https://lereacteur-vinted-api.herokuapp.com/user/signup`,
-        newUser
+        "https://quentin-vinted-backend.herokuapp.com/login",
+        user
       );
-      // Si réponse avec token on envoi token dans la fonction setUser (dans App.js) qui va créer le cookie
+      console.log(response.data);
       if (response.data.token) {
+        // Création du cookie avec le token
         setUser(response.data.token);
-        history.go(-1);
+        setDisplayModal(false);
+
+        // Rediriger l'utilisateur vers la page ou il se trouvait précédement
+        history.push("/");
       }
     } catch (error) {
       console.log(error.message);
@@ -63,7 +61,7 @@ const SignUp = ({ setUser }) => {
               </p>
             </div>
           </div>
-          <h4>Sign up</h4>
+          <h4>Sign in</h4>
           <p className="lorem">
             Nam convallis dictum lectus a malesuada. Vestibulum sagittis dui
             eget felis tempor aliquet.
@@ -71,21 +69,9 @@ const SignUp = ({ setUser }) => {
           <form
             action=""
             method="get"
-            className="form-sign text-field-main"
+            className="form-sign text-field-main "
             onSubmit={handleSubmit}
           >
-            <div className="form-sign-up">
-              <label className="form-label" htmlFor="name">
-                Username *
-              </label>
-              <input
-                type="text"
-                name="username"
-                className="username"
-                required
-                onChange={handleUsernameChange}
-              />
-            </div>
             <div className="form-sign-up">
               <label className="form-label" htmlFor="email">
                 E-mail adresse *
@@ -112,13 +98,13 @@ const SignUp = ({ setUser }) => {
             </div>
 
             <button className="button-primary" type="submit" value="Sign in">
-              Sign up
+              Sign in
             </button>
           </form>
           <div className="hor-separator"></div>
           <div className="already-signed link">
-            <Link to="/SignIn">
-              <span>Already a member ? Sign in !</span>
+            <Link to="/SignUp">
+              <span>Not a member yet ? Sign up</span>
             </Link>
           </div>
         </div>
@@ -128,4 +114,4 @@ const SignUp = ({ setUser }) => {
   );
 };
 
-export default SignUp;
+export default ModalSignIn;
