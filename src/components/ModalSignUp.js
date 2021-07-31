@@ -7,6 +7,7 @@ const ModalSignUp = ({
   displayModalSignUp,
   setUser,
   setDisplayModalSignUp,
+  setDisplayModalSignIn,
 }) => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState();
@@ -138,9 +139,14 @@ const ModalSignUp = ({
               </form>
               <div className="hor-separator"></div>
               <div className="already-signed link">
-                <Link to="/SignIn">
-                  <span>Already a member ? Sign in !</span>
-                </Link>
+                <span
+                  onClick={() => {
+                    setDisplayModalSignUp(false);
+                    setDisplayModalSignIn(true);
+                  }}
+                >
+                  Already a member ? Sign in !
+                </span>
               </div>
             </div>
           </div>

@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { useState } from "react";
 import Cookies from "js-cookie";
 import Home from "./containers/Home.js";
-import SignIn from "./containers/SignIn";
 import Header from "./components/Header";
 import Offer from "./containers/Offer.js";
 import Footer from "./components/Footer";
@@ -58,10 +57,6 @@ function App() {
         <Switch>
           <Route path="/offer/:id">
             <Offer />
-          </Route>
-
-          <Route path="/signIn">
-            <SignIn setUser={setUser} />
           </Route>
 
           <Route path="/">
