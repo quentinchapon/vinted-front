@@ -9,12 +9,14 @@ import Heart from "../img/ic_heart.svg";
 const Home = () => {
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
+  const [search, setSearch] = useState("");
+  const [sortPrice, setSortPrice] = useState({ value: "price-asc" });
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          "https://quentin-vinted-backend.herokuapp.com/offers"
+          `https://quentin-vinted-backend.herokuapp.com/offers?description=${search}&sort=${sortPrice}`
         );
         setData(response.data);
         setIsLoading(false);
@@ -23,18 +25,26 @@ const Home = () => {
       }
     };
     fetchData();
-  }, []);
+  }, [search]);
 
   return isLoading ? (
     <Loader />
   ) : (
     <div className="wrapper">
-      <HeroBanner></HeroBanner>
+      <HeroBanner
+        setSearch={setSearch}
+        setSortPrice={setSortPrice}
+        sortPrice={sortPrice}
+      ></HeroBanner>
       <div className="offers-list">
         {data.offers.map((offer, index) => {
           return (
-            <Link to={`/offer/${offer._id}`} style={{ textDecoration: "none" }}>
-              <div className="offer-card-main" key={offer._id}>
+            <Link
+              to={`/offer/${offer._id}`}
+              style={{ textDecoration: "none" }}
+              key={offer._id}
+            >
+              <div className="offer-card-main">
                 <div className="offer-card-image">
                   <img src={offer.product_image.url} alt=""></img>
                 </div>
@@ -56,7 +66,7 @@ const Home = () => {
                   </div>
 
                   <div className="offer-card-size">
-                    <p>{offer.product_details[0].TAILLE}</p>
+                    <p>{offer.product_details[1].TAILLE}</p>
                   </div>
 
                   <div className="hor-separator"></div>

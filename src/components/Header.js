@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import Search from "../img/ic_search.svg";
+// import Search from "../img/ic_search.svg";
 
 const Header = ({
   userToken,
@@ -24,19 +24,12 @@ const Header = ({
             </div>
           </div>
         </Link>
-        <div className="text-field-main">
-          <form className="searchbar" action="">
-            <input type="texte" placeholder="Search for items" />
-            <button type="submit">
-              <img src={Search} alt="Search"></img>
-            </button>
-          </form>
-        </div>
+
         <nav className="nav-main">
           <ul>
-            <Link to="/" style={{ textDecoration: "none" }}>
+            {/* <Link to="/" style={{ textDecoration: "none" }}>
               <li>All offers</li>
-            </Link>
+            </Link> */}
             {/* <li>Men</li>
             <li>Kids</li>
             <li>Home</li>

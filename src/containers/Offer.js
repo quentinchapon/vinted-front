@@ -52,7 +52,7 @@ const Offer = () => {
               {data.product_details.map((detail, index) => {
                 const key = Object.keys(detail);
                 return (
-                  <li>
+                  <li key={index}>
                     <span>{key[0]}:</span>
                     <span> {detail[key[0]]}</span>
                   </li>
