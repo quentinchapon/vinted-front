@@ -4,20 +4,34 @@ import { useParams } from "react-router";
 import { Link } from "react-router-dom";
 import Loader from "../components/Loader";
 import Heart from "../img/ic_heart.svg";
+import defaultProfil from "../img/default_profil.png";
 
 const Offer = () => {
   const [isLoading, setIsLoading] = useState(true);
-  const [data, setData] = useState();
+  const [offerData, setOfferData] = useState();
+  const [offersData, setOffersData] = useState();
   const { id } = useParams();
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(
-          `https://quentin-vinted-backend.herokuapp.com/offer/${id}`
-        );
-        setData(response.data);
-        setIsLoading(false);
+        await axios
+          .all([
+            axios.get(
+              `https://quentin-vinted-backend.herokuapp.com/offer/${id}`
+            ),
+            axios.get(`https://quentin-vinted-backend.herokuapp.com/offers`),
+          ])
+          .then(
+            axios.spread((...responses) => {
+              const responseOne = responses[0];
+              const responseTwo = responses[1];
+              setOfferData(responseOne.data);
+              setOffersData(responseTwo.data);
+
+              setIsLoading(false);
+            })
+          );
       } catch (error) {
         console.log(error.message);
       }
@@ -34,39 +48,86 @@ const Offer = () => {
       </Link>
       <div className="contentOffer">
         <div className="offerImage">
-          <img src={data.product_image.url} alt="" />
+          <img src={offerData.product_image.url} alt="" />
         </div>
         <div className="offerInformations">
           <div className="offerHeader">
             <div className="offerTitle">
-              <h3>{data.product_name}</h3>
+              <h3>{offerData.product_name}</h3>
             </div>
             <div className="offerFav">
               <img src={Heart} alt="" />
             </div>
           </div>
           <div className="offerPrice">
-            <p>{data.product_price} €</p>
+            <p>{offerData.product_price} €</p>
           </div>
           <div className="offerDescription">
-            <p>{data.product_description}</p>
+            <p>{offerData.product_description}</p>
           </div>
           <div className="offerInfos">
             <ul>
-              {data.product_details.map((detail, index) => {
+              {offerData.product_details.map((detail, index) => {
                 const key = Object.keys(detail);
                 return (
                   <li key={index}>
-                    <span>{key[0]}:</span>
+                    <span>{key[0] + " : "} </span>
                     <span> {detail[key[0]]}</span>
                   </li>
                 );
               })}
             </ul>
           </div>
-          <div className="btnBuy button-primary">
-            <button>Buy product</button>
-          </div>
+
+          <button className="button-primary">Buy product</button>
+        </div>
+      </div>
+      <div className="moreContent">
+        <h2>More offers</h2>
+
+        <div className="offers-list">
+          {offersData.offers.map((offer, index) => {
+            return (
+              <Link
+                to={`/offer/${offer._id}`}
+                style={{ textDecoration: "none" }}
+                key={offer._id}
+              >
+                <div className="offer-card-main">
+                  <div className="offer-card-image">
+                    <img src={offer.product_image.url} alt=""></img>
+                  </div>
+
+                  <div className="offer-card-content">
+                    <div className="card-info">
+                      <div className="offer-card-price">
+                        <p>{offer.product_price} €</p>
+                      </div>
+                      <div className="offer-card-fav">
+                        <img src={Heart} alt=""></img>
+                      </div>
+                    </div>
+                    <div className="offer-card-description">
+                      {offer.product_description}
+                    </div>
+                    <div className="offer-card-brand">
+                      <p>{offer.product_details[0].MARQUE}</p>
+                    </div>
+
+                    <div className="offer-card-size">
+                      <p>{offer.product_details[1].TAILLE}</p>
+                    </div>
+
+                    <div className="hor-separator"></div>
+                    <div className="offer-card-user">
+                      <img src={defaultProfil} alt=""></img>
+                      <p>{offer.owner.account.username}</p>
+                    </div>
+                  </div>
+                </div>
+              </Link>
+            );
+          })}
         </div>
       </div>
     </div>

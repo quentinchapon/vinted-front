@@ -490,6 +490,8 @@ form.searchbar button {
 .offerInfos {
   display: flex;
   flex-direction: column;
+  height: 175px;
+  align-items: space-between;
 }
 
 .offerInfos li {
@@ -511,36 +513,39 @@ form.searchbar button {
 .contentOffer {
   width: 100%;
   display: flex;
-  grid-column-gap: 40px;
   column-gap: 40px;
   justify-content: center;
-  height: 700px;
+  height: 540px;
   overflow: hidden;
 }
 
 .offerImage {
   width: 520px;
-  height: 570px;
+  height: 500px;
   border-radius: 10px;
-  margin-top: 20px;
   overflow: hidden;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .offerImage img {
-  height: 100%;
   object-fit: cover;
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
 }
 
 .offerInformations {
+  margin-top: 20px;
+  margin-bottom: 20px;
   padding: 30px;
   box-sizing: border-box;
   width: 445px;
-  height: 570px;
+  height: 500px;
   background-color: #fff;
   overflow: hidden;
   border-radius: 10px;
   box-shadow: 5px 5px 29px #00223441;
-  margin-top: 20px;
 }
 
 .offerHeader {
@@ -557,7 +562,8 @@ form.searchbar button {
 }
 
 .offerDescription {
-  margin: 10px 0;
+  height: 60px;
+  margin: 40px 0;
   font-family: "Nunito Sans", sans-serif;
   font-size: 1rem;
   color: #656565;
@@ -567,7 +573,7 @@ form.searchbar button {
   color: white;
 }
 
-/* /* FOOTER */
+/*FOOTER */
 footer {
   margin-top: 60px;
   border-top: 1px solid #e6e6e6;
@@ -1027,4 +1033,12 @@ footer .nav-main {
     margin-top: 30px;
     margin-left: 0;
   }
+}
+
+.moreContent .offers-list {
+  margin-top: 30px;
+}
+
+.moreContent h2 {
+  margin-top: 40px;
 }
