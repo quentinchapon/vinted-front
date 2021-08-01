@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 // import Search from "../img/ic_search.svg";
-
+import defaultProfil from "../img/default_profil.png";
 const Header = ({
   userToken,
   setUser,
@@ -8,7 +8,6 @@ const Header = ({
   setDisplayModalSignIn,
   displayModalSignUp,
   displayModalSignIn,
-  defaultProfil,
   username,
 }) => {
   return (
@@ -43,7 +42,7 @@ const Header = ({
         <div className="buttons">
           {userToken ? (
             <div className="connectionButtons">
-              <div className="offer-card-user">
+              <div className="connectedProfil">
                 <img src={defaultProfil} alt=""></img>
                 <p>{username}</p>
               </div>

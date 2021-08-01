@@ -931,3 +931,26 @@ footer .nav-main {
   transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
 }
+
+.connectedProfil {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 30px;
+  font-family: "Nunito Sans", sans-serif;
+  font-weight: 300;
+  color: #656565;
+}
+
+.connectedProfil p {
+  margin-left: 10px;
+  margin-right: 20px;
+}
+
+.inputError {
+  margin-top: 20px;
+  text-align: center;
+  font-family: "Nunito Sans", sans-serif;
+  font-weight: 300;
+  color: rgba(255, 0, 0, 0.673);
+}

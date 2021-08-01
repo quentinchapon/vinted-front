@@ -11,6 +11,7 @@ const ModalSignIn = ({
 }) => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
+  const [inputError, setInputError] = useState(false);
 
   const history = useHistory();
 
@@ -42,11 +43,16 @@ const ModalSignIn = ({
         setUser(response.data.token);
         setDisplayModalSignIn(false);
 
+        //Cacher l'eventuel message d'erreur
+        setInputError(false);
+
         // Rediriger l'utilisateur vers la page ou il se trouvait précédement
         history.push("/");
+      } else {
+        setInputError(true);
       }
-    } catch (error) {
-      console.log(error.message);
+    } catch {
+      setInputError(true);
     }
   };
   if (displayModalSignIn === true) {
@@ -120,6 +126,11 @@ const ModalSignIn = ({
                 >
                   Sign in
                 </button>
+                {inputError === true && (
+                  <div className="inputError">
+                    E-mail and / or password are incorrect, please try again
+                  </div>
+                )}
               </form>
               <div className="hor-separator"></div>
               <div className="already-signed link">
