@@ -208,16 +208,11 @@ header {
 }
 
 form.searchbar {
-  display: -webkit-box;
-  display: -ms-flexbox;
+  position: relative;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: row;
   flex-direction: row;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
+  margin-right: 10px;
 }
 
 form.searchbar button {
@@ -231,8 +226,8 @@ form.searchbar button {
   border-radius: 20px;
   border: none;
   cursor: pointer;
-  position: relative;
-  right: 38px;
+  position: absolute;
+  right: 9px;
 }
 
 /* NAVIGATION */
@@ -687,7 +682,8 @@ footer .nav-main {
 .modal {
   position: relative;
   border-radius: 10px;
-  width: 80%;
+  width: 80vw;
+  max-width: 1600px;
   display: flex;
   height: 85vh;
   background-color: white;
@@ -882,13 +878,6 @@ footer .nav-main {
   }
 }
 
-.yellow {
-  background-color: #faf55e9e;
-}
-
-.yellow::before {
-  background-color: #faf55e6b;
-}
 .cselect {
   position: relative;
 }
@@ -937,6 +926,13 @@ footer .nav-main {
   flex-direction: row;
   align-items: center;
   height: 30px;
+  position: relative;
+  border-radius: 10px;
+  width: 80vw;
+  max-width: 1600px;
+  display: flex;
+  height: 85vh;
+  background-color: white;
   font-family: "Nunito Sans", sans-serif;
   font-weight: 300;
   color: #656565;
@@ -948,9 +944,87 @@ footer .nav-main {
 }
 
 .inputError {
-  margin-top: 20px;
+  margin-top: 10px;
   text-align: center;
   font-family: "Nunito Sans", sans-serif;
   font-weight: 300;
+  font-size: 14px;
   color: rgba(255, 0, 0, 0.673);
+}
+
+@media (max-width: 960px) {
+  .offers-list {
+    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(2, 40%);
+    grid-column-gap: 30px;
+    grid-row-gap: 30px;
+    margin-top: -70px;
+  }
+
+  h1 {
+    font-size: 3.3rem;
+  }
+
+  h2 {
+    font-size: 1.8rem;
+  }
+}
+
+.filtersBar {
+  display: flex;
+}
+
+@media (max-width: 730px) {
+  .section-title {
+    flex-direction: column;
+    margin-left: 0;
+    margin-top: 40px;
+  }
+
+  .section-title .vert-separator {
+    display: none;
+  }
+
+  .filtersBar {
+    margin-top: 20px;
+  }
+
+  .offers-list {
+    margin-top: -40px;
+  }
+
+  .hero-banner {
+    box-sizing: border-box;
+    padding-top: 90px;
+    margin-top: -45px;
+    height: 375px;
+  }
+
+  .hero-banner h1 {
+    text-align: center;
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 660px) {
+  .offers-list {
+    grid-template-columns: repeat(1, 80%);
+    margin-top: -90px;
+  }
+
+  .hero-banner h1 {
+    font-size: 2rem;
+    text-align: center;
+    margin-left: 0;
+  }
+
+  .hero-banner h2 {
+    font-size: 1.5rem;
+  }
+
+  .section-title {
+    margin-top: 30px;
+    margin-left: 0;
+  }
 }

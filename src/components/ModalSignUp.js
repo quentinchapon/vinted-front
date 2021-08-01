@@ -12,6 +12,7 @@ const ModalSignUp = ({
   const [email, setEmail] = useState();
   const [password, setPassword] = useState("");
   const history = useHistory();
+  const [inputError, setInputError] = useState();
 
   const handleEmailChange = (event) => {
     const value = event.target.value;
@@ -42,14 +43,16 @@ const ModalSignUp = ({
       );
 
       // Si réponse avec token on envoi token dans la fonction setUser (dans App.js) qui va créer le cookie
+
       if (response.data.token) {
-        console.log(response.data.token);
         setUser(response.data.token);
         setDisplayModalSignUp(false);
+        setInputError(false);
+
         history.push("/");
       }
-    } catch (error) {
-      console.log(error.message);
+    } catch {
+      setInputError(true);
     }
   };
   if (displayModalSignUp === true) {
@@ -135,6 +138,9 @@ const ModalSignUp = ({
                 >
                   Sign up
                 </button>
+                {inputError === true && (
+                  <div className="inputError">E-mail is already in use</div>
+                )}
               </form>
               <div className="hor-separator"></div>
               <div className="already-signed link">

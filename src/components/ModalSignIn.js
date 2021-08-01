@@ -145,7 +145,7 @@ const ModalSignIn = ({
               </div>
             </div>
           </div>
-          <div className="right-panel yellow"></div>
+          <div className="right-panel "></div>
         </div>
       </div>
     );
