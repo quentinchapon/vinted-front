@@ -9,6 +9,7 @@ const Header = ({
   displayModalSignUp,
   displayModalSignIn,
   defaultProfil,
+  username,
 }) => {
   return (
     <header>
@@ -44,7 +45,7 @@ const Header = ({
             <div className="connectionButtons">
               <div className="offer-card-user">
                 <img src={defaultProfil} alt=""></img>
-                <p>Username</p>
+                <p>{username}</p>
               </div>
               <Link to="/">
                 <button className="link" onClick={() => setUser(null)}>

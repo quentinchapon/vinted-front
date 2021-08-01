@@ -13,6 +13,7 @@ function App() {
   const [userToken, setUserToken] = useState(Cookies.get("userToken") || null);
   const [displayModalSignUp, setDisplayModalSignUp] = useState(false);
   const [displayModalSignIn, setDisplayModalSignIn] = useState(false);
+  const [username, setUsername] = useState();
 
   // Fonction de création du cookie
   const setUser = (token) => {
@@ -36,6 +37,7 @@ function App() {
         setUser={setUser}
         setDisplayModalSignUp={setDisplayModalSignUp}
         setDisplayModalSignIn={setDisplayModalSignIn}
+        setUsername={setUsername}
       />
       <ModalSignUp
         displayModalSignUp={displayModalSignUp}
@@ -46,6 +48,7 @@ function App() {
       />
       <div className="wrapper">
         <Header
+          username={username}
           userToken={userToken}
           setUser={setUser}
           setDisplayModalSignUp={setDisplayModalSignUp}

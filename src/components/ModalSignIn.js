@@ -7,9 +7,11 @@ const ModalSignIn = ({
   setUser,
   setDisplayModalSignIn,
   setDisplayModalSignUp,
+  setUsername,
 }) => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
+
   const history = useHistory();
 
   const handleEmailChange = (event) => {
@@ -35,6 +37,7 @@ const ModalSignIn = ({
         user
       );
       if (response.data.token) {
+        setUsername(response.data.account.username);
         // Création du cookie avec le token
         setUser(response.data.token);
         setDisplayModalSignIn(false);
