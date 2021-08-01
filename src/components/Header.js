@@ -8,6 +8,7 @@ const Header = ({
   setDisplayModalSignIn,
   displayModalSignUp,
   displayModalSignIn,
+  defaultProfil,
 }) => {
   return (
     <header>
@@ -41,6 +42,10 @@ const Header = ({
         <div className="buttons">
           {userToken ? (
             <div className="connectionButtons">
+              <div className="offer-card-user">
+                <img src={defaultProfil} alt=""></img>
+                <p>Username</p>
+              </div>
               <Link to="/">
                 <button className="link" onClick={() => setUser(null)}>
                   Sign Out

@@ -10,7 +10,7 @@ const Home = () => {
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
   const [search, setSearch] = useState("");
-  const [sortPrice, setSortPrice] = useState({ value: "price-asc" });
+  const [sortPrice, setSortPrice] = useState("price-asc");
 
   useEffect(() => {
     const fetchData = async () => {
@@ -25,7 +25,7 @@ const Home = () => {
       }
     };
     fetchData();
-  }, [search]);
+  }, [search, sortPrice]);
 
   return isLoading ? (
     <Loader />
@@ -34,7 +34,6 @@ const Home = () => {
       <HeroBanner
         setSearch={setSearch}
         setSortPrice={setSortPrice}
-        sortPrice={sortPrice}
       ></HeroBanner>
       <div className="offers-list">
         {data.offers.map((offer, index) => {

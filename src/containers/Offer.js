@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
+import { Link } from "react-router-dom";
 import Loader from "../components/Loader";
 import Heart from "../img/ic_heart.svg";
 
@@ -28,6 +29,9 @@ const Offer = () => {
     <Loader />
   ) : (
     <div className="wrapper">
+      <Link to="/" style={{ textDecoration: "none" }}>
+        <div className="link back-link">&#8592; Back to offers</div>
+      </Link>
       <div className="contentOffer">
         <div className="offerImage">
           <img src={data.product_image.url} alt="" />

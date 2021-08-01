@@ -21,17 +21,20 @@ const HeroBanner = ({ setSearch, sortPrice, setSortPrice }) => {
             <button type="">
               <img src={Search} alt="Search"></img>
             </button>
-            <select
-              name="sort"
-              id="sort"
-              value={sortPrice.value}
-              onChange={(event) => {
-                setSortPrice(event.target.value);
-              }}
-            >
-              <option value="price-asc">Price : Low to high</option>
-              <option value="price-desc">Price : High to low</option>
-            </select>
+            <div className="custom-select">
+              <select
+                name="sort"
+                id="sort"
+                value={sortPrice}
+                onChange={(event) => {
+                  setSortPrice(event.target.value);
+                }}
+              >
+                <option value="price-asc">Price : Low to high</option>
+                <option value="price-desc">Price : High to low</option>
+              </select>
+              <div className="arrow down"></div>
+            </div>
           </form>
         </div>
       </div>
