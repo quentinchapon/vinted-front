@@ -70,7 +70,6 @@ const ModalSignUp = ({
               <div className="close-line"></div>
             </div>
           </div>
-          <div className="link back-link"></div>
           <div className="left-panel">
             <div className="sign-up-module">
               <div className="logo-main">
