@@ -1121,6 +1121,9 @@ footer .nav-main {
     justify-content: center;
     width: 80%;
   }
+  .offers-list {
+    grid-template-columns: repeat(1, 90%);
+  }
 }
 
 .moreContent .offers-list {
