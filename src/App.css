@@ -1056,6 +1056,18 @@ footer .nav-main {
     margin-top: 30px;
     margin-left: 0;
   }
+
+  .custom-select {
+    width: 45%;
+  }
+
+  form.searchbar {
+    width: 45%;
+  }
+
+  .filtersBar {
+    justify-content: center;
+  }
 }
 
 .moreContent .offers-list {
