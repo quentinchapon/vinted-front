@@ -85,7 +85,6 @@ const Header = ({
               <button
                 className="link"
                 onClick={() => {
-                  console.log("Sign in " + displayModalSignIn);
                   if (displayModalSignIn === false) {
                     setDisplayModalSignIn(true);
                     setDisplayModalSignUp(false);
