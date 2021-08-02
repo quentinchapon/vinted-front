@@ -6,8 +6,10 @@ const Header = ({
   setUser,
   setDisplayModalSignUp,
   setDisplayModalSignIn,
+  setDisplayModalPublish,
   displayModalSignUp,
   displayModalSignIn,
+  displayModalPublish,
   username,
 }) => {
   return (
@@ -52,7 +54,17 @@ const Header = ({
                 </button>
               </Link>
               <div className="vert-separator"></div>
-              <button className="button-primary">Sell now</button>
+              <button
+                className="button-primary"
+                onClick={() => {
+                  if (userToken) {
+                    setDisplayModalPublish(true);
+                    console.log(displayModalPublish);
+                  }
+                }}
+              >
+                Sell now
+              </button>
             </div>
           ) : (
             <div className="connectionButtons">
@@ -63,7 +75,7 @@ const Header = ({
                     setDisplayModalSignUp(true);
                     setDisplayModalSignIn(false);
                   } else {
-                    setDisplayModalSignUp(false);
+                    setDisplayModalSignUp("Publish" + false);
                   }
                 }}
               >
@@ -84,7 +96,17 @@ const Header = ({
               >
                 Sign In
               </button>
-              <button className="button-primary">Sell now</button>
+              <button
+                className="button-primary"
+                onClick={() => {
+                  if (!userToken) {
+                    setDisplayModalSignIn(true);
+                    console.log(displayModalPublish);
+                  }
+                }}
+              >
+                Sell now
+              </button>
             </div>
           )}
         </div>

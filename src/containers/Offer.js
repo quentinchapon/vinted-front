@@ -6,18 +6,11 @@ import Loader from "../components/Loader";
 import Heart from "../img/ic_heart.svg";
 import defaultProfil from "../img/default_profil.png";
 
-const Offer = () => {
+const Offer = ({ scrollToTop }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [offerData, setOfferData] = useState();
   const [offersData, setOffersData] = useState();
   const { id } = useParams();
-
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-  };
 
   useEffect(() => {
     const fetchData = async () => {
