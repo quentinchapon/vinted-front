@@ -45,7 +45,7 @@ const Home = () => {
             >
               <div className="offer-card-main">
                 <div className="offer-card-image">
-                  <img src={offer.product_image.url} alt=""></img>
+                  <img src={offer.product_image.secure_url} alt=""></img>
                 </div>
 
                 <div className="offer-card-content">

@@ -48,7 +48,7 @@ const Offer = ({ scrollToTop }) => {
       </Link>
       <div className="contentOffer">
         <div className="offerImage">
-          <img src={offerData.product_image.url} alt="" />
+          <img src={offerData.product_image.secure_url} alt="" />
         </div>
         <div className="offerInformations">
           <div className="offerHeader">
@@ -96,7 +96,7 @@ const Offer = ({ scrollToTop }) => {
               >
                 <div className="offer-card-main">
                   <div className="offer-card-image">
-                    <img src={offer.product_image.url} alt=""></img>
+                    <img src={offer.product_image.secure_url} alt=""></img>
                   </div>
 
                   <div className="offer-card-content">
