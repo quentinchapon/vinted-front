@@ -991,6 +991,26 @@ footer .nav-main {
     margin-top: 40px;
   }
 
+  footer {
+    flex-direction: column;
+  }
+
+  footer .nav-main ul {
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+
+  footer .nav-main ul li {
+    margin-top: 15px;
+    margin-right: 0;
+    margin-left: 0px;
+    text-align: center;
+  }
+
+  .logo-footer {
+    margin-top: 30px;
+  }
+
   .section-title .vert-separator {
     display: none;
   }
