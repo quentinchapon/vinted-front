@@ -229,7 +229,7 @@ const ModalPublish = ({
                   )}
                 </Dropzone>
                 <p className="form-label">File preview({fileName})</p>
-                <img className="preview" alt="{fileName}"" src={preview} />
+                <img className="preview" alt={fileName} src={preview} />
 
                 <button
                   className="button-primary"
@@ -238,11 +238,11 @@ const ModalPublish = ({
                 >
                   Publish
                 </button>
-                {inputError === true && (
+                {/* {inputError === true && (
                   <div className="inputError">
                     Informations are missing please fill the required fields.
                   </div>
-                )}
+                )} */}
               </form>
             </div>
           </div>
