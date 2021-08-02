@@ -21,7 +21,7 @@ const ModalPublish = ({
   const [brand, setBrand] = useState();
   const [color, setColor] = useState();
   const [picture, setPicture] = useState();
-  const [inputError, setInputError] = useState(false);
+  // const [inputError, setInputError] = useState(false);
   const [preview, setPreview] = useState(null);
   const [fileName, setFileName] = useState("no file");
 
@@ -62,10 +62,10 @@ const ModalPublish = ({
     setColor(value);
   };
 
-  const handlePictureChange = (event) => {
-    const value = event.target.files[0];
-    setPicture(value);
-  };
+  // const handlePictureChange = (event) => {
+  //   const value = event.target.files[0];
+  //   setPicture(value);
+  // };
 
   const handleSubmit = async (event) => {
     try {
@@ -88,6 +88,7 @@ const ModalPublish = ({
         formData,
         { headers: { authorization: `Bearer ${userToken}` } }
       );
+      console.log(response.data);
       setDisplayModalPublish(false);
       history.push("/");
     } catch (error) {
@@ -228,7 +229,7 @@ const ModalPublish = ({
                   )}
                 </Dropzone>
                 <p className="form-label">File preview({fileName})</p>
-                <img className="preview" src={preview} />
+                <img className="preview" alt="{fileName}"" src={preview} />
 
                 <button
                   className="button-primary"
