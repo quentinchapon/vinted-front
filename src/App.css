@@ -1035,6 +1035,38 @@ footer .nav-main {
 }
 
 @media (max-width: 660px) {
+  header {
+    height: 85px;
+  }
+
+  .header-right {
+    margin-right: 10px;
+  }
+
+  .logo-main {
+    margin-left: 20px;
+  }
+
+  .logo-almost {
+    font-size: 0.3rem;
+  }
+
+  .logo-vinted {
+    font-size: 1.9em;
+  }
+
+  .vert-separator {
+    display: none;
+  }
+
+  .connectionButtons .link {
+    margin-left: 10px;
+  }
+
+  .hero-banner {
+    margin-top: -85px;
+  }
+
   .offers-list {
     grid-template-columns: repeat(1, 80%);
     margin-top: -90px;
