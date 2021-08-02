@@ -12,6 +12,13 @@ const Offer = () => {
   const [offersData, setOffersData] = useState();
   const { id } = useParams();
 
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -92,6 +99,7 @@ const Offer = () => {
                 to={`/offer/${offer._id}`}
                 style={{ textDecoration: "none" }}
                 key={offer._id}
+                onClick={scrollToTop}
               >
                 <div className="offer-card-main">
                   <div className="offer-card-image">
