@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import Dropzone from "react-dropzone";
+import noImg from "../img/noImg.png";
 
 const ModalPublish = ({
   userToken,
@@ -22,8 +23,8 @@ const ModalPublish = ({
   const [color, setColor] = useState();
   const [picture, setPicture] = useState();
   // const [inputError, setInputError] = useState(false);
-  const [preview, setPreview] = useState(null);
-  const [fileName, setFileName] = useState("no file");
+  const [preview, setPreview] = useState(noImg);
+  const [fileName, setFileName] = useState("No file");
 
   const history = useHistory();
 
@@ -221,8 +222,8 @@ const ModalPublish = ({
                         <input {...getInputProps()} />
 
                         <p>
-                          Drag 'n' drop some files here, or click to select a
-                          files. 1 file maximum.
+                          Drag 'n' drop a file here, or click to select a file.
+                          1 file maximum.
                         </p>
                       </div>
                     </section>
