@@ -13,7 +13,7 @@ const Offer = ({ scrollToTop }) => {
   const { id } = useParams();
 
   useEffect(() => {
-    window.scrollTo(0, 0);
+    scrollToTop();
     const fetchData = async () => {
       try {
         await axios
