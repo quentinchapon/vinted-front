@@ -1,4 +1,4 @@
-import Search from "../img/ic_search.svg";
+// import Search from "../img/ic_search.svg";
 
 const HeroBanner = ({ setSearch, sortPrice, setSortPrice }) => {
   return (
