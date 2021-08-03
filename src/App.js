@@ -2,8 +2,8 @@ import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { useState } from "react";
 import Cookies from "js-cookie";
-import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
+import { loadStripe } from "@stripe/stripe-js";
 import Home from "./containers/Home.js";
 import Header from "./components/Header";
 import Offer from "./containers/Offer.js";
@@ -12,9 +12,11 @@ import ModalSignUp from "./components/ModalSignUp";
 import ModalSignIn from "./components/ModalSignIn";
 import ModalPublish from "./components/ModalPublish";
 import ModalPayment from "./components/ModalPayment";
+
 const stripePromise = loadStripe(
   "pk_test_51JKMzqFoOQI89P8BWtoOpsG4uTo3AKxgp5VgFpcXwblWCVS4MFL0IWZMNAfEUQOPgzhepSCeICztudRfoCZIR8Y9009b2KLr6t"
 );
+
 function App() {
   const [userToken, setUserToken] = useState(Cookies.get("userToken") || null);
   const [displayModalSignUp, setDisplayModalSignUp] = useState(false);
@@ -100,8 +102,10 @@ function App() {
         <Switch>
           <Route path="/offer/:id">
             <Offer
+              userToken={userToken}
               scrollToTop={scrollToTop}
               setDisplayModalPayment={setDisplayModalPayment}
+              setDisplayModalSignIn={setDisplayModalSignIn}
               displayModalPayment={displayModalPayment}
             />
           </Route>

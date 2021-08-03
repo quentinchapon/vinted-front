@@ -7,7 +7,12 @@ import Loader from "../components/Loader";
 import Heart from "../img/ic_heart.svg";
 import defaultProfil from "../img/default_profil.png";
 
-const Offer = ({ scrollToTop, setDisplayModalPayment }) => {
+const Offer = ({
+  scrollToTop,
+  setDisplayModalPayment,
+  setDisplayModalSignIn,
+  userToken,
+}) => {
   const [isLoading, setIsLoading] = useState(true);
   const [offerData, setOfferData] = useState();
   const [offersData, setOffersData] = useState();
@@ -84,8 +89,11 @@ const Offer = ({ scrollToTop, setDisplayModalPayment }) => {
           <button
             className="button-primary"
             onClick={() => {
-              console.log("Click");
-              setDisplayModalPayment(true);
+              if (userToken) {
+                setDisplayModalPayment(true);
+              } else {
+                setDisplayModalSignIn(true);
+              }
             }}
           >
             Buy product

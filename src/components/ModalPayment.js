@@ -11,18 +11,17 @@ const ModalPayment = ({
   const stripe = useStripe();
   const elements = useElements();
 
-  // const userId = "";
-  const product_price = "";
+  const userId = "Je suis un user";
+  const amount = 666;
 
   const handleSubmit = async (event) => {
-    console.log("Coucou");
     try {
       event.preventDefault();
-      // Récupérer les données du formulaire
+      // Récupérer les données de la CB
       const cardElements = elements.getElement(CardElement);
       // Envoyer à l'API Stripe
       const stripeResponse = await stripe.createToken(cardElements, {
-        name: "",
+        name: userId,
       });
       //   console.log(stripeResponse.token.id);
       // Envoyer le stripeToken au serveur
@@ -30,7 +29,8 @@ const ModalPayment = ({
         "https://quentin-vinted-backend.herokuapp.com/payment",
         {
           stripeToken: stripeResponse.token.id,
-          price: product_price,
+          title: "Mon titre",
+          price: amount,
         }
       );
       console.log("La réponse du serveur ====> ", response.data);
@@ -47,7 +47,6 @@ const ModalPayment = ({
           <div
             className="closeModal"
             onClick={() => {
-              console.log("Click click click");
               setDisplayModalPayment(false);
             }}
           >
@@ -84,8 +83,10 @@ const ModalPayment = ({
                   className="button-primary"
                   type="submit"
                   value="Publish"
-                />
-                Confirm and pay
+                  value="Confirm and pay"
+                >
+                  Confirm and pay
+                </button>
               </form>
             </div>
           </div>
