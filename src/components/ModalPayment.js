@@ -26,10 +26,13 @@ const ModalPayment = ({
       });
       //   console.log(stripeResponse.token.id);
       // Envoyer le stripeToken au serveur
-      const response = await axios.post("http://localhost:4000/payment", {
-        stripeToken: stripeResponse.token.id,
-        price: product_price,
-      });
+      const response = await axios.post(
+        "https://quentin-vinted-backend.herokuapp.com/payment",
+        {
+          stripeToken: stripeResponse.token.id,
+          price: product_price,
+        }
+      );
       console.log("La réponse du serveur ====> ", response.data);
     } catch (error) {
       console.log(error.response);
