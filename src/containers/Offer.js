@@ -7,10 +7,6 @@ import Loader from "../components/Loader";
 import Heart from "../img/ic_heart.svg";
 import defaultProfil from "../img/default_profil.png";
 
-const stripePromise = loadStripe(
-  "pk_test_51JKMzqFoOQI89P8BWtoOpsG4uTo3AKxgp5VgFpcXwblWCVS4MFL0IWZMNAfEUQOPgzhepSCeICztudRfoCZIR8Y9009b2KLr6t"
-);
-
 const Offer = ({ scrollToTop, setDisplayModalPayment }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [offerData, setOfferData] = useState();
