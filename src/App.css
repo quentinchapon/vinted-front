@@ -1237,9 +1237,6 @@ footer .nav-main {
   height: 80px;
 }
 
-.promptModal {
-}
-
 .paymentCard {
   height: 100px;
   margin-top: 20px;
@@ -1250,12 +1247,13 @@ footer .nav-main {
 }
 
 .modalPayment {
+  max-width: 700px;
   position: relative;
   border-radius: 10px;
-  max-width: 1600px;
   display: flex;
   height: 450px;
   background-color: white;
+  box-shadow: 1px 1px 10px #00223441;
 }
 
 .paymentConfirmation {
@@ -1264,4 +1262,12 @@ footer .nav-main {
   color: #4f9d00;
   margin-top: 40px;
   text-align: center;
+}
+
+.payment {
+  border-radius: 10px 0 0 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }

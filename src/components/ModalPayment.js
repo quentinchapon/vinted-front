@@ -58,7 +58,7 @@ const ModalPayment = ({
               <div className="close-line"></div>
             </div>
           </div>
-          <div className="left-panel payment">
+          <div className="payment">
             <div className="sign-up-module">
               <div className="logo-main">
                 <div className="logo-almost">
