@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
-import { loadStripe } from "@stripe/stripe-js";
+// import { loadStripe } from "@stripe/stripe-js";
 import Loader from "../components/Loader";
 import Heart from "../img/ic_heart.svg";
 import defaultProfil from "../img/default_profil.png";

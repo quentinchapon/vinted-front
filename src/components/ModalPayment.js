@@ -1,6 +1,6 @@
 import axios from "axios";
-import { useState } from "react";
-import { useHistory } from "react-router-dom";
+// import { useState } from "react";
+// import { useHistory } from "react-router-dom";
 import { useStripe, useElements, CardElement } from "@stripe/react-stripe-js";
 
 const ModalPayment = ({
@@ -11,7 +11,7 @@ const ModalPayment = ({
   const stripe = useStripe();
   const elements = useElements();
 
-  const userId = "";
+  // const userId = "";
   const product_price = "";
 
   const handleSubmit = async (event) => {
