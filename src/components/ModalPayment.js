@@ -32,8 +32,8 @@ const ModalPayment = ({
         "https://quentin-vinted-backend.herokuapp.com/payment",
         {
           stripeToken: stripeResponse.token.id,
-          title: paymentOfferInfos[1],
-          price: paymentOfferInfos[0],
+          title: paymentOfferInfos[0],
+          price: paymentOfferInfos[1],
         }
       );
       setMessage(response.data.message);
