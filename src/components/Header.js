@@ -75,7 +75,7 @@ const Header = ({
                     setDisplayModalSignUp(true);
                     setDisplayModalSignIn(false);
                   } else {
-                    setDisplayModalSignUp("Publish" + false);
+                    setDisplayModalSignUp(false);
                   }
                 }}
               >

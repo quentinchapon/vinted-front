@@ -239,11 +239,6 @@ const ModalPublish = ({
                 >
                   Publish
                 </button>
-                {/* {inputError === true && (
-                  <div className="inputError">
-                    Informations are missing please fill the required fields.
-                  </div>
-                )} */}
               </form>
             </div>
           </div>

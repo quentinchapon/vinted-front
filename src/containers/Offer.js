@@ -2,11 +2,16 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
+import { loadStripe } from "@stripe/stripe-js";
 import Loader from "../components/Loader";
 import Heart from "../img/ic_heart.svg";
 import defaultProfil from "../img/default_profil.png";
 
-const Offer = ({ scrollToTop }) => {
+const stripePromise = loadStripe(
+  "pk_test_51JKMzqFoOQI89P8BWtoOpsG4uTo3AKxgp5VgFpcXwblWCVS4MFL0IWZMNAfEUQOPgzhepSCeICztudRfoCZIR8Y9009b2KLr6t"
+);
+
+const Offer = ({ scrollToTop, setDisplayModalPayment }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [offerData, setOfferData] = useState();
   const [offersData, setOffersData] = useState();
@@ -38,7 +43,7 @@ const Offer = ({ scrollToTop }) => {
       }
     };
     fetchData();
-  }, [id]);
+  }, [id, scrollToTop]);
 
   return isLoading ? (
     <Loader />
@@ -80,7 +85,15 @@ const Offer = ({ scrollToTop }) => {
             </ul>
           </div>
 
-          <button className="button-primary">Buy product</button>
+          <button
+            className="button-primary"
+            onClick={() => {
+              console.log("Click");
+              setDisplayModalPayment(true);
+            }}
+          >
+            Buy product
+          </button>
         </div>
       </div>
       <div className="moreContent">

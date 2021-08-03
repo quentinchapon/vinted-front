@@ -2,6 +2,7 @@ import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { useState } from "react";
 import Cookies from "js-cookie";
+import { Elements } from "@stripe/react-stripe-js";
 import Home from "./containers/Home.js";
 import Header from "./components/Header";
 import Offer from "./containers/Offer.js";
@@ -9,12 +10,14 @@ import Footer from "./components/Footer";
 import ModalSignUp from "./components/ModalSignUp";
 import ModalSignIn from "./components/ModalSignIn";
 import ModalPublish from "./components/ModalPublish";
+import ModalPayment from "./components/ModalPayment";
 
 function App() {
   const [userToken, setUserToken] = useState(Cookies.get("userToken") || null);
   const [displayModalSignUp, setDisplayModalSignUp] = useState(false);
   const [displayModalSignIn, setDisplayModalSignIn] = useState(false);
   const [displayModalPublish, setDisplayModalPublish] = useState(false);
+  const [displayModalPayment, setDisplayModalPayment] = useState(false);
   const [username, setUsername] = useState();
 
   //Fonction scroll to top
@@ -70,6 +73,12 @@ function App() {
         setDisplayModalSignIn={setDisplayModalSignIn}
         setDisplayModalPublish={setDisplayModalSignIn}
       />
+      <Elements stripe={stripePromise}>
+        <ModalPayment
+          displayModalPayment={displayModalPayment}
+          setDisplayModalPayment={setDisplayModalPayment}
+        />
+      </Elements>
       <div className="wrapper">
         <Header
           username={username}
@@ -87,7 +96,11 @@ function App() {
 
         <Switch>
           <Route path="/offer/:id">
-            <Offer scrollToTop={scrollToTop} />
+            <Offer
+              scrollToTop={scrollToTop}
+              setDisplayModalPayment={setDisplayModalPayment}
+              displayModalPayment={displayModalPayment}
+            />
           </Route>
 
           <Route path="/">
