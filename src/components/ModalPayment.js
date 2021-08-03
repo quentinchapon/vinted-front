@@ -78,13 +78,13 @@ const ModalPayment = ({
               {/* DEBUT CARD */}
               <div className="offer-card-main paymentCard">
                 <div className="offer-card-image">
-                  <img src={paymentOfferInfos[1]} alt=""></img>
+                  <img src={paymentOfferInfos[0]} alt=""></img>
                 </div>
 
                 <div className="offer-card-content">
                   <div className="card-info">
                     <div className="offer-card-price">
-                      <p>{paymentOfferInfos[0]} €</p>
+                      <p>{paymentOfferInfos[1]} €</p>
                     </div>
                   </div>
                   <div className="offer-card-description">
@@ -109,7 +109,7 @@ const ModalPayment = ({
                       type="submit"
                       value="Confirm and pay"
                     >
-                      Confirm and pay {paymentOfferInfos[0]} euros
+                      Confirm and pay {paymentOfferInfos[1]} euros
                     </button>
                   </>
                 ) : (
