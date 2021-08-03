@@ -1239,3 +1239,29 @@ footer .nav-main {
 
 .promptModal {
 }
+
+.paymentCard {
+  height: 100px;
+  margin-top: 20px;
+}
+
+.button-payment {
+  margin-top: 20px;
+}
+
+.modalPayment {
+  position: relative;
+  border-radius: 10px;
+  max-width: 1600px;
+  display: flex;
+  height: 450px;
+  background-color: white;
+}
+
+.paymentConfirmation {
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 1.43rem;
+  color: #4f9d00;
+  margin-top: 40px;
+  text-align: center;
+}

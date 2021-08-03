@@ -2,15 +2,17 @@ import axios from "axios";
 // import { useState } from "react";
 // import { useHistory } from "react-router-dom";
 import { useStripe, useElements, CardElement } from "@stripe/react-stripe-js";
+import { useState } from "react";
 
 const ModalPayment = ({
   userToken,
   setDisplayModalPayment,
   displayModalPayment,
+  paymentOfferInfos,
 }) => {
   const stripe = useStripe();
   const elements = useElements();
-
+  const [message, setMessage] = useState();
   const userId = "Je suis un user";
   const amount = 666;
 
@@ -24,6 +26,7 @@ const ModalPayment = ({
         name: userId,
       });
       //   console.log(stripeResponse.token.id);
+
       // Envoyer le stripeToken au serveur
       const response = await axios.post(
         "https://quentin-vinted-backend.herokuapp.com/payment",
@@ -33,7 +36,7 @@ const ModalPayment = ({
           price: amount,
         }
       );
-      console.log("La réponse du serveur ====> ", response.data);
+      setMessage(response.data.message);
     } catch (error) {
       console.log(error.response);
       console.log(error.message);
@@ -43,7 +46,7 @@ const ModalPayment = ({
   if (displayModalPayment === true) {
     return (
       <div className="modalWrapper">
-        <div className="modalPublish">
+        <div className="modalPayment">
           <div
             className="closeModal"
             onClick={() => {
@@ -55,7 +58,7 @@ const ModalPayment = ({
               <div className="close-line"></div>
             </div>
           </div>
-          <div className="left-panel">
+          <div className="left-panel payment">
             <div className="sign-up-module">
               <div className="logo-main">
                 <div className="logo-almost">
@@ -72,20 +75,49 @@ const ModalPayment = ({
                 Nam convallis dictum lectus a malesuada. Vestibulum sagittis dui
                 eget felis tempor aliquet.
               </p>
+              {/* DEBUT CARD */}
+              <div className="offer-card-main paymentCard">
+                <div className="offer-card-image">
+                  <img src={paymentOfferInfos[1]} alt=""></img>
+                </div>
+
+                <div className="offer-card-content">
+                  <div className="card-info">
+                    <div className="offer-card-price">
+                      <p>{paymentOfferInfos[0]} €</p>
+                    </div>
+                  </div>
+                  <div className="offer-card-description">
+                    {paymentOfferInfos[2]}
+                  </div>
+                </div>
+              </div>
+
+              {/* FIN CARD */}
+
               <form
                 action=""
                 method="get"
                 className="form-sign text-field-main"
                 onSubmit={handleSubmit}
               >
-                <CardElement />
-                <button
-                  className="button-primary"
-                  type="submit"
-                  value="Confirm and pay"
-                >
-                  Confirm and pay
-                </button>
+                {message !== "Paiement validé" ? (
+                  <>
+                    <CardElement />
+                    <button
+                      className="button-primary button-payment"
+                      type="submit"
+                      value="Confirm and pay"
+                    >
+                      Confirm and pay {paymentOfferInfos[0]} euros
+                    </button>
+                  </>
+                ) : (
+                  <p className="paymentConfirmation">
+                    {" "}
+                    Thank you your payment has been confirmed !
+                  </p>
+                )}
               </form>
             </div>
           </div>

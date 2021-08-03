@@ -24,7 +24,7 @@ function App() {
   const [displayModalPublish, setDisplayModalPublish] = useState(false);
   const [displayModalPayment, setDisplayModalPayment] = useState(false);
   const [username, setUsername] = useState();
-  const [paymentOfferInfos, setPaymentOfferInfos] = useState();
+  const [paymentOfferInfos, setPaymentOfferInfos] = useState({});
 
   //Fonction scroll to top
   const scrollToTop = () => {

@@ -91,7 +91,11 @@ const Offer = ({
             className="button-primary"
             onClick={() => {
               if (userToken) {
-                setPaymentOfferInfos("Test");
+                setPaymentOfferInfos([
+                  offerData.product_price,
+                  offerData.product_image.secure_url,
+                  offerData.product_description,
+                ]);
                 setDisplayModalPayment(true);
               } else {
                 setDisplayModalSignIn(true);
