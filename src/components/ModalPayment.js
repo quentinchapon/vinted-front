@@ -82,7 +82,6 @@ const ModalPayment = ({
                 <button
                   className="button-primary"
                   type="submit"
-                  value="Publish"
                   value="Confirm and pay"
                 >
                   Confirm and pay

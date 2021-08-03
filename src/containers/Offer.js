@@ -11,6 +11,7 @@ const Offer = ({
   scrollToTop,
   setDisplayModalPayment,
   setDisplayModalSignIn,
+  setPaymentOfferInfos,
   userToken,
 }) => {
   const [isLoading, setIsLoading] = useState(true);
@@ -90,6 +91,7 @@ const Offer = ({
             className="button-primary"
             onClick={() => {
               if (userToken) {
+                setPaymentOfferInfos("Test");
                 setDisplayModalPayment(true);
               } else {
                 setDisplayModalSignIn(true);

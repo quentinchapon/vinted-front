@@ -24,6 +24,7 @@ function App() {
   const [displayModalPublish, setDisplayModalPublish] = useState(false);
   const [displayModalPayment, setDisplayModalPayment] = useState(false);
   const [username, setUsername] = useState();
+  const [paymentOfferInfos, setPaymentOfferInfos] = useState();
 
   //Fonction scroll to top
   const scrollToTop = () => {
@@ -80,6 +81,7 @@ function App() {
       />
       <Elements stripe={stripePromise}>
         <ModalPayment
+          paymentOfferInfos={paymentOfferInfos}
           displayModalPayment={displayModalPayment}
           setDisplayModalPayment={setDisplayModalPayment}
         />
@@ -106,6 +108,7 @@ function App() {
               scrollToTop={scrollToTop}
               setDisplayModalPayment={setDisplayModalPayment}
               setDisplayModalSignIn={setDisplayModalSignIn}
+              setPaymentOfferInfos={setPaymentOfferInfos}
               displayModalPayment={displayModalPayment}
             />
           </Route>
