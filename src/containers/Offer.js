@@ -92,8 +92,8 @@ const Offer = ({
             onClick={() => {
               if (userToken) {
                 setPaymentOfferInfos([
-                  offerData.product_price,
                   offerData.product_image.secure_url,
+                  offerData.product_price,
                   offerData.product_description,
                 ]);
                 setDisplayModalPayment(true);

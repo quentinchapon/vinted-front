@@ -98,7 +98,7 @@ const Header = ({
               <button
                 className="button-primary"
                 onClick={() => {
-                  if (userToken) {
+                  if (!userToken) {
                     setDisplayModalSignIn(true);
                   }
                 }}
